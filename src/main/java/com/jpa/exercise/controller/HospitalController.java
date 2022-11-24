@@ -40,6 +40,6 @@ public class HospitalController {
     }
     @GetMapping("/{id}/reviews")
     public ResponseEntity<List<ReviewResponse>> getReviews(@PathVariable Integer id, Pageable pageable){
-        return ResponseEntity.ok().body(reviewService.findReviews(id, pageable));
+        return ResponseEntity.ok().body(reviewService.findReviewsByHospitalId(id, pageable));
     }
 }

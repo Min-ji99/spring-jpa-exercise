@@ -37,10 +37,21 @@ public class ReviewService {
         return new ReviewCreateResponse(savedReview.getId(), savedReview.getTitle(), savedReview.getContent(), savedReview.getAuthor(), "리뷰 등록 성공");
     }
 
-    public List<ReviewResponse> findReviews(Integer id,Pageable pageable) {
+    public List<ReviewResponse> findReviewsByHospitalId(Integer id,Pageable pageable) {
         Page<Review> reviews=reviewRespository.findByHospital_Id(id, pageable);
         List<ReviewResponse> reviewResponses=reviews.stream()
                 .map(review->ReviewResponse.of(review)).collect(Collectors.toList());
         return reviewResponses;
+    }
+    public List<ReviewResponse> findReviews(Pageable pageable) {
+        Page<Review> reviews=reviewRespository.findAll(pageable);
+        List<ReviewResponse> reviewResponses=reviews.stream()
+                .map(review->ReviewResponse.of(review)).collect(Collectors.toList());
+        return reviewResponses;
+    }
+
+    public ReviewResponse findReviewsById(Integer id) {
+        Optional<Review> optionalReview=reviewRespository.findById(id);
+        return ReviewResponse.of(optionalReview.get());
     }
 }
