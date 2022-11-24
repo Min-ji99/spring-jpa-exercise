@@ -14,7 +14,7 @@ import java.util.List;
 public class Hospital {
     @Id
     private Integer id;
-    private String hospitalName;
+    private String name;
     private String roadNameAddress;
     @OneToMany(mappedBy = "hospital", fetch=FetchType.LAZY)
     private List<Review> reviews;

@@ -5,6 +5,7 @@ import com.jpa.exercise.domain.Review;
 import com.jpa.exercise.domain.dto.HospitalResponse;
 import com.jpa.exercise.domain.dto.ReviewCreateRequest;
 import com.jpa.exercise.domain.dto.ReviewCreateResponse;
+import com.jpa.exercise.domain.dto.ReviewResponse;
 import com.jpa.exercise.service.HospitalService;
 import com.jpa.exercise.service.ReviewService;
 import org.springframework.data.domain.Pageable;
@@ -26,15 +27,19 @@ public class HospitalController {
         this.reviewService=reviewService;
     }
     @GetMapping("")
-    public ResponseEntity<List<HospitalResponse>> list(Pageable pageable){
+    public ResponseEntity<List<HospitalResponse>> getHospitals(Pageable pageable){
         return ResponseEntity.ok().body(hospitalService.findHospitals(pageable));
     }
     @GetMapping("/{id}")
-    public ResponseEntity<List<Review>> getReview(@PathVariable Integer id, Pageable pageable){
-        return ResponseEntity.ok().body(new ArrayList<>());
+    public ResponseEntity<HospitalResponse> getReviews(@PathVariable Integer id){
+        return ResponseEntity.ok().body(hospitalService.findHospital(id));
     }
     @PostMapping("/{id}/reviews")
     public ResponseEntity<ReviewCreateResponse> get(@PathVariable Integer id, @RequestBody ReviewCreateRequest reviewCreateRequest){
         return ResponseEntity.ok().body(reviewService.add(reviewCreateRequest));
+    }
+    @GetMapping("/{id}/reviews")
+    public ResponseEntity<List<ReviewResponse>> getReviews(@PathVariable Integer id, Pageable pageable){
+        return ResponseEntity.ok().body(reviewService.findReviews(id, pageable));
     }
 }

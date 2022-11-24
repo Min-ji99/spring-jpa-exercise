@@ -21,7 +21,7 @@ public class HospitalResponse {
     public static HospitalResponse of(Hospital hospital){
         return HospitalResponse.builder()
                 .hospitalId(hospital.getId())
-                .hospitalName(hospital.getHospitalName())
+                .hospitalName(hospital.getName())
                 .roadNameAddress(hospital.getRoadNameAddress())
                 .build();
     }
