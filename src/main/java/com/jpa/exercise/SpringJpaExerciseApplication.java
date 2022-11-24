@@ -1,5 +1,6 @@
 package com.jpa.exercise;
 
+import com.jpa.exercise.config.SwaggerConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
