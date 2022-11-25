@@ -17,12 +17,14 @@ public class HospitalResponse {
     private Integer hospitalId;
     private String hospitalName;
     private String roadNameAddress;
+    private int reviewCnt;
 
     public static HospitalResponse of(Hospital hospital){
         return HospitalResponse.builder()
                 .hospitalId(hospital.getId())
                 .hospitalName(hospital.getName())
                 .roadNameAddress(hospital.getRoadNameAddress())
+                .reviewCnt(hospital.getReviews().size())
                 .build();
     }
 }
