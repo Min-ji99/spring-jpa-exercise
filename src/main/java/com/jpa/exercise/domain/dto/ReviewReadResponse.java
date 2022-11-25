@@ -22,7 +22,7 @@ public class ReviewReadResponse {
                 .author(review.getAuthor())
                 .title(review.getTitle())
                 .content(review.getContent())
-                .hospitalName(" ")
+                .hospitalName(review.getHospital().getName())
                 .build();
     }
 }
