@@ -1,9 +1,7 @@
 package com.jpa.exercise.service;
 
 import com.jpa.exercise.domain.Hospital;
-import com.jpa.exercise.domain.Review;
 import com.jpa.exercise.domain.dto.HospitalResponse;
-import com.jpa.exercise.domain.dto.ReviewResponse;
 import com.jpa.exercise.repository.HospitalRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

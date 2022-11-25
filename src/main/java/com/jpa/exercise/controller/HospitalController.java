@@ -1,18 +1,15 @@
 package com.jpa.exercise.controller;
 
-import com.jpa.exercise.domain.Hospital;
-import com.jpa.exercise.domain.Review;
 import com.jpa.exercise.domain.dto.HospitalResponse;
 import com.jpa.exercise.domain.dto.ReviewCreateRequest;
 import com.jpa.exercise.domain.dto.ReviewCreateResponse;
-import com.jpa.exercise.domain.dto.ReviewResponse;
+import com.jpa.exercise.domain.dto.ReviewReadResponse;
 import com.jpa.exercise.service.HospitalService;
 import com.jpa.exercise.service.ReviewService;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -39,7 +36,7 @@ public class HospitalController {
         return ResponseEntity.ok().body(reviewService.add(reviewCreateRequest));
     }
     @GetMapping("/{id}/reviews")
-    public ResponseEntity<List<ReviewResponse>> getReviews(@PathVariable Integer id, Pageable pageable){
+    public ResponseEntity<List<ReviewReadResponse>> getReviews(@PathVariable Integer id, Pageable pageable){
         return ResponseEntity.ok().body(reviewService.findReviewsByHospitalId(id, pageable));
     }
 }

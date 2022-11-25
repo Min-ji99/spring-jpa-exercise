@@ -1,7 +1,6 @@
 package com.jpa.exercise.controller;
 
-import com.jpa.exercise.domain.Review;
-import com.jpa.exercise.domain.dto.ReviewResponse;
+import com.jpa.exercise.domain.dto.ReviewReadResponse;
 import com.jpa.exercise.service.ReviewService;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -22,12 +21,12 @@ public class ReviewController {
     }
 
     @GetMapping("")
-    public ResponseEntity<List<ReviewResponse>> list(Pageable pageable){
+    public ResponseEntity<List<ReviewReadResponse>> list(Pageable pageable){
         return ResponseEntity.ok().body(reviewService.findReviews(pageable));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ReviewResponse> getReview(@PathVariable Integer id){
+    public ResponseEntity<ReviewReadResponse> getReview(@PathVariable Integer id){
         return ResponseEntity.ok().body(reviewService.findReviewsById(id));
     }
 }
