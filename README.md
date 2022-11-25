@@ -24,3 +24,6 @@
 - **리뷰 id로 확인**<br>
   Get api/v1/reviews/{id}
   http://ec2-15-165-232-17.ap-northeast-2.compute.amazonaws.com:8080/api/v1/reviews/1
+
+### Swagger
+http://ec2-15-165-232-17.ap-northeast-2.compute.amazonaws.com:8080/swagger-ui/
